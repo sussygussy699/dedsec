@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dedsec</title>
+    <style>
+        /* General body styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #55ff00; /* Background color fallback */
+
+            /* Fullscreen background image with gradient overlay */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('images/7472583cb62772a2e16809b5190d0427.jpg');
+            background-size: cover; /* Make the image cover the entire page */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            background-position: center; /* Center the background image */
+            height: 100vh; /* Ensure it covers the full viewport height */
+        }
+
+        /* Content styling */
+        .content {
+            color: white;
+            text-align: center;
+            padding: 50px;
+            position: absolute; /* Position it on top of the background */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the content */
+            width: 90%; /* Make sure it fits on smaller screens */
+            max-width: 900px; /* Limit width on large screens */
+        }
+
+        /* Button styles */
+        .hacking-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+        }
+
+        .hacking-options button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            min-width: 200px; /* Ensure buttons have a minimum width */
+            margin: 10px;
+        }
+
+        .hacking-options button:hover {
+            background-color: #555;
+            transform: scale(1.05); /* Slightly enlarge buttons on hover */
+        }
+
+        /* Preloader styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        #preloader img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader Section -->
+    <div id="preloader">
+        <img src="images/dedsec.gif" alt="Loading...">
+    </div>
+
+    <!-- Main Content Section -->
+    <div id="content" class="content">
+        <h1>Welcome to DedSec</h1>
+        <p>Click one of the hacking options to begin.</p>
+        <p>This is a hacking app that lets you access anything electronic.</p>
+
+        <!-- Hacking Options Buttons -->
+        <div class="hacking-options">
+            <button onclick="alert('Traffic Lights Hacked.')">Hack Traffic Lights</button>
+            <button onclick="alert('Bank Accounts Accessed.')">Hack Bank Accounts</button>
+            <button onclick="alert('Cameras Hijacked.')">Hack Cameras</button>
+            <button onclick="alert('Wi-Fi Networks Hacked.')">Hack Wi-Fi Networks</button>
+            <button onclick="alert('Smart Devices Controlled.')">Control Smart Devices</button>
+            <button onclick="alert('Social Media Accounts Accessed.')">Access Social Media</button>
+            <button onclick="alert('Communication Networks Disrupted.')">Disrupt Communication Networks</button>
+            <button onclick="alert('Autonomous Vehicles Overridden.')">Override Autonomous Vehicles</button>
+        </div>
+    </div>
+
+    <script>
+        // Passcode check before accessing the main content
+        var passcode = prompt("Enter the passcode to access DedSec:");
+
+        if (passcode === "dont fuck with dedsec") {
+            // If the passcode is correct, hide preloader and show content
+            window.addEventListener('load', function() {
+                const preloader = document.getElementById('preloader');
+                const content = document.getElementById('content');
+                
+                // Add a slight delay before hiding the preloader
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    preloader.style.transition = 'opacity 0.5s ease';
+                    
+                    // Remove preloader from view after transition
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                        content.style.display = 'block';
+                    }, 500);
+                }, 500); // Adjust delay as necessary
+            });
+        } else {
+            // If the passcode is incorrect, close the window
+            alert("Incorrect passcode! Closing the page.");
+            window.close();
+        }
+    </script>
+</body>
+</html>
